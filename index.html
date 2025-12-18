@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ЭлектроМонтаж Про 2025 | Услуги электрика</title>
+    <title>ЭлектроМонтаж Про 2025</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <style>
-        /* === ГЛОБАЛЬНЫЕ СТИЛИ === */
         :root {
             --primary: #2563eb;
             --primary-dark: #1e40af;
@@ -18,7 +17,7 @@
             --white: #ffffff;
             --gray: #64748b;
             --border: #e2e8f0;
-            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -27,171 +26,190 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--light);
             color: var(--dark);
-            line-height: 1.6;
+            line-height: 1.5;
             scroll-behavior: smooth;
-            padding-bottom: 80px; /* Отступ под мобильную плашку */
+            padding-bottom: 80px; /* Место под нижнюю панель на мобильном */
         }
-
-        .container {
-            max-width: 1400px; 
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 40px;
-            margin-top: 60px;
-        }
-        .section-header h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
-        .section-header p { color: var(--gray); font-size: 1.1rem; }
 
         /* === HEADER === */
         header {
             position: fixed; top: 0; left: 0; width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
             z-index: 1000;
             border-bottom: 1px solid var(--border);
-            padding: 15px 0;
+            padding: 12px 0;
+            transition: 0.3s;
         }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 22px; font-weight: 800; color: var(--dark); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo { font-size: 20px; font-weight: 800; color: var(--dark); text-decoration: none; display: flex; align-items: center; gap: 8px; }
         .logo i { color: var(--accent); }
-        .contact-btn { background: var(--primary); color: var(--white); padding: 8px 20px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: 0.3s; font-size: 0.95rem; white-space: nowrap; }
-        .contact-btn:hover { background: var(--primary-dark); box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3); }
-
+        .contact-btn { background: var(--primary); color: var(--white); padding: 8px 16px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        
         /* === HERO === */
         .hero {
-            margin-top: 70px;
-            position: relative;
-            background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.85)), 
-                        url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1920');
-            background-size: cover;
-            background-position: center;
+            margin-top: 65px;
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
+                        url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1200');
+            background-size: cover; background-position: center;
             color: var(--white);
-            padding: 100px 0 80px 0;
+            padding: 60px 0;
             text-align: center;
-            border-radius: 0 0 40px 40px;
-            margin-bottom: 40px;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 30px;
         }
-        .hero h1 { font-size: 3rem; margin-bottom: 20px; line-height: 1.2; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
-        .hero p { font-size: 1.2rem; color: #e2e8f0; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .hero h1 { font-size: 2.2rem; margin-bottom: 15px; line-height: 1.1; }
+        .hero p { font-size: 1rem; color: #cbd5e1; max-width: 600px; margin: 0 auto; }
         .hero-span { color: var(--accent); }
 
-        /* === КАЛЬКУЛЯТОР === */
+        /* === LAYOUT === */
         .app-wrapper {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* 50% на 50% на ПК */
-            gap: 40px;
+            grid-template-columns: 1fr 1fr; /* По умолчанию 2 колонки (ПК) */
+            gap: 30px;
             margin-bottom: 60px;
         }
-        
-        /* Левая панель */
+
+        /* === SERVICES LIST (LEFT) === */
         .services-panel { background: var(--white); border-radius: 20px; box-shadow: var(--shadow); padding: 20px; border: 1px solid var(--border); }
         
-        .tabs { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px; margin-bottom: 20px; border-bottom: 1px solid var(--border); scrollbar-width: none; -ms-overflow-style: none; }
+        /* TABS (Sticky styling handled in media queries) */
+        .tabs { 
+            display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px; margin-bottom: 15px; 
+            border-bottom: 1px solid var(--border); scrollbar-width: none; 
+        }
         .tabs::-webkit-scrollbar { display: none; }
         
-        .tab-btn { padding: 10px 16px; border-radius: 12px; background: var(--light); border: none; cursor: pointer; font-weight: 600; color: var(--gray); white-space: nowrap; transition: 0.2s; font-size: 0.9rem; }
-        .tab-btn.active { background: var(--primary); color: var(--white); }
+        .tab-btn { 
+            padding: 8px 16px; border-radius: 20px; background: var(--light); border: none; 
+            cursor: pointer; font-weight: 600; color: var(--gray); white-space: nowrap; 
+            font-size: 0.9rem; transition: 0.2s; 
+        }
+        .tab-btn.active { background: var(--primary); color: var(--white); transform: scale(1.05); }
+
+        .service-group { margin-bottom: 25px; scroll-margin-top: 130px; }
+        .group-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; color: var(--dark); padding-left: 5px; }
         
-        .service-group { margin-bottom: 30px; scroll-margin-top: 140px; }
-        .group-title { font-size: 1.1rem; margin-bottom: 15px; font-weight: 700; display: flex; align-items: center; gap: 10px; position: sticky; top: 0; background: #fff; padding: 10px 0; z-index: 10; border-bottom: 1px solid transparent; }
-        .group-title i { color: var(--primary); }
-        
-        .service-item { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px dashed var(--border); }
+        .service-item { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 12px 0; border-bottom: 1px dashed var(--border); 
+        }
         .service-item:last-child { border-bottom: none; }
         
         .item-info { padding-right: 10px; }
-        .item-info h4 { margin: 0 0 5px 0; font-size: 0.95rem; line-height: 1.3; }
+        .item-info h4 { margin: 0 0 4px 0; font-size: 0.95rem; line-height: 1.2; }
         .item-price { color: var(--primary); font-weight: 700; font-size: 0.9rem; }
-        .item-unit { font-size: 0.8rem; color: #888; font-weight: normal; }
-        
-        .controls { display: flex; align-items: center; gap: 5px; background: var(--light); border-radius: 50px; padding: 4px; }
-        .btn-qty { width: 32px; height: 32px; border-radius: 50%; border: none; background: var(--white); cursor: pointer; font-weight: bold; color: var(--primary); box-shadow: 0 2px 4px rgba(0,0,0,0.05); font-size: 1.1rem; display: flex; align-items: center; justify-content: center; }
-        .qty-val { width: 24px; text-align: center; font-weight: 600; font-size: 0.9rem; }
+        .item-unit { font-size: 0.8rem; color: #999; font-weight: normal; }
+
+        /* Controls */
+        .controls { display: flex; align-items: center; gap: 8px; background: var(--light); border-radius: 12px; padding: 4px; }
+        .btn-qty { 
+            width: 32px; height: 32px; border-radius: 8px; border: none; background: var(--white); 
+            cursor: pointer; font-weight: bold; color: var(--primary); box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
+            font-size: 1.2rem; display: flex; align-items: center; justify-content: center;
+        }
+        .btn-qty:active { background: #eee; transform: scale(0.95); }
+        .qty-val { width: 24px; text-align: center; font-weight: 600; font-size: 0.95rem; }
         .add-btn-text { padding: 6px 12px; font-size: 0.85rem; font-weight: 600; color: var(--primary); cursor: pointer; }
+
+        /* === CART PANEL (DESKTOP) === */
+        .cart-panel { 
+            position: sticky; top: 90px; height: fit-content; 
+            background: var(--white); border-radius: 20px; box-shadow: var(--shadow); 
+            padding: 25px; border: 1px solid var(--border); 
+        }
+        .cart-header { font-size: 1.3rem; font-weight: 800; margin-bottom: 15px; border-bottom: 2px solid var(--light); padding-bottom: 10px; }
+        .cart-list { max-height: 400px; overflow-y: auto; margin-bottom: 20px; }
+        .cart-list-item { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.9rem; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px; }
+        .del-btn { color: #ff4757; cursor: pointer; margin-left: 10px; }
         
-        /* Правая панель (Смета для ПК) */
-        .cart-panel { position: sticky; top: 100px; height: fit-content; background: var(--white); border-radius: 20px; box-shadow: var(--shadow); padding: 30px; border: 1px solid var(--border); }
-        .cart-header { font-size: 1.5rem; font-weight: 800; margin-bottom: 20px; border-bottom: 2px solid var(--light); padding-bottom: 15px; }
-        .cart-list { max-height: 500px; overflow-y: auto; margin-bottom: 20px; }
-        .cart-list-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; font-size: 1rem; padding-bottom: 10px; border-bottom: 1px solid #f0f0f0; white-space: nowrap; overflow: hidden; }
-        .cart-item-name { white-space: normal; margin-right: 15px; line-height: 1.2; }
-        .cart-item-price { white-space: nowrap; font-weight: bold; display: flex; align-items: center; min-width: 100px; justify-content: flex-end; }
-        .del-btn { color: #ef4444; cursor: pointer; margin-left: 15px; font-size: 1.1rem; }
-        .total-price { font-size: 2.5rem; font-weight: 800; color: var(--dark); display: block; }
-        .form-input { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid var(--border); outline: none; transition: 0.3s; margin-bottom: 15px; font-family: inherit; font-size: 16px; }
-        .form-input:focus { border-color: var(--primary); }
-        .btn-order { width: 100%; padding: 15px; border: none; border-radius: 12px; font-weight: 700; font-size: 1rem; cursor: pointer; display: flex; justify-content: center; gap: 10px; transition: 0.3s; margin-bottom: 10px; }
+        .total-block { background: var(--light); padding: 15px; border-radius: 12px; text-align: center; margin-bottom: 15px; }
+        .total-price { font-size: 2rem; font-weight: 800; color: var(--dark); display: block; }
+        
+        .form-input { 
+            width: 100%; padding: 12px; border-radius: 10px; border: 1px solid var(--border); 
+            outline: none; margin-bottom: 10px; font-family: inherit; font-size: 16px; 
+        }
+        .btn-order { 
+            width: 100%; padding: 14px; border: none; border-radius: 12px; font-weight: 700; 
+            cursor: pointer; display: flex; justify-content: center; gap: 8px; font-size: 1rem; margin-bottom: 8px;
+        }
         .btn-whatsapp { background: #25D366; color: white; }
         .btn-telegram { background: #2481cc; color: white; }
-        .empty-cart-msg { text-align: center; color: var(--gray); padding: 40px 0; }
-        .empty-cart-msg i { font-size: 2rem; margin-bottom: 15px; opacity: 0.5; }
+        .empty-msg { text-align: center; color: #999; padding: 30px 0; }
 
-        /* === ПОРТФОЛИО === */
-        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; margin-bottom: 60px; }
-        .portfolio-card { background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--border); }
-        .portfolio-img-wrap { width: 100%; height: 200px; overflow: hidden; }
-        .portfolio-img { width: 100%; height: 100%; object-fit: cover; }
-        .portfolio-content { padding: 20px; }
-        .portfolio-tag { display: inline-block; background: var(--light); color: var(--primary); padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; margin-bottom: 10px; }
-        .portfolio-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
-        .portfolio-desc { color: var(--gray); font-size: 0.9rem; margin-bottom: 15px; line-height: 1.5; }
-        .portfolio-price { font-weight: 700; color: var(--dark); border-top: 1px solid var(--border); padding-top: 15px; display: flex; justify-content: space-between; font-size: 0.95rem; }
-        
-        /* === КАРТА === */
-        .map-section { position: relative; height: 400px; margin-bottom: 0; }
-        .map-overlay { position: absolute; top: 20px; left: 50%; transform: translateX(-50%); background: var(--white); padding: 10px 25px; border-radius: 50px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); z-index: 5; font-weight: 700; font-size: 0.9rem; white-space: nowrap; }
-        .map-frame { width: 100%; height: 100%; border: 0; }
-
-        /* === MOBILE ADAPTATION (АДАПТАЦИЯ) === */
-        @media (max-width: 1000px) {
-            .hero h1 { font-size: 2.2rem; }
-            .hero { padding: 60px 0 60px 0; border-radius: 0 0 30px 30px; }
-            .app-wrapper { grid-template-columns: 1fr; gap: 20px; } /* Одна колонка */
-            .cart-panel { display: none; } /* Скрываем правую корзину */
-            .portfolio-grid { grid-template-columns: 1fr; } /* Портфолио в 1 колонку */
-            .section-header h2 { font-size: 1.8rem; }
-            
-            /* Нижняя плашка для телефона */
-            .mobile-cart-bar {
-                position: fixed; bottom: 0; left: 0; width: 100%;
-                background: var(--white); 
-                box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
-                padding: 15px 20px; 
-                display: flex; justify-content: space-between; align-items: center;
-                z-index: 999; border-top: 1px solid var(--border);
-                padding-bottom: max(15px, env(safe-area-inset-bottom)); /* Для iPhone без кнопки */
-            }
-            .mob-total { font-weight: 800; font-size: 1.3rem; color: var(--dark); }
-            .mob-btn { 
-                background: var(--dark); color: white; 
-                padding: 12px 30px; border-radius: 30px; 
-                text-decoration: none; font-weight: 600; 
-            }
+        /* === MOBILE BOTTOM BAR === */
+        .mobile-cart-bar {
+            position: fixed; bottom: 0; left: 0; width: 100%;
+            background: var(--white); 
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+            padding: 15px 20px; 
+            display: none; /* Скрыто на ПК */
+            justify-content: space-between; align-items: center;
+            z-index: 2000; border-top: 1px solid var(--border);
+            padding-bottom: max(15px, env(safe-area-inset-bottom));
+        }
+        .mob-info { font-size: 0.8rem; color: #888; }
+        .mob-total { font-weight: 800; font-size: 1.2rem; color: var(--dark); }
+        .mob-btn { 
+            background: var(--dark); color: white; 
+            padding: 10px 25px; border-radius: 30px; 
+            text-decoration: none; font-weight: 600; cursor: pointer;
         }
 
-        @media (max-width: 480px) {
-            .container { padding: 0 15px; }
-            .logo { font-size: 18px; }
-            .contact-btn { padding: 6px 12px; font-size: 0.85rem; }
-            .contact-btn i { display: none; } /* Скрыть иконку телефона, оставить номер */
-            .hero h1 { font-size: 1.8rem; }
-            .hero p { font-size: 1rem; }
-            .btn-qty { width: 36px; height: 36px; } /* Кнопки еще крупнее для пальцев */
-            .map-section { height: 300px; }
+        /* === MOBILE MODAL (BOTTOM SHEET) === */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5); backdrop-filter: blur(3px);
+            z-index: 3000; display: none; justify-content: center; align-items: flex-end;
         }
-
-        @media (min-width: 1001px) { .mobile-cart-bar { display: none; } }
-
-        /* Modal */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); z-index: 2000; display: none; justify-content: center; align-items: flex-end; }
-        .modal-overlay.active { display: flex; }
-        .modal-content { background: var(--white); width: 100%; max-width: 500px; border-radius: 20px 20px 0 0; padding: 25px; animation: slideUp 0.3s ease; padding-bottom: max(25px, env(safe-area-inset-bottom)); }
+        .modal-overlay.active { display: flex; animation: fadeIn 0.2s; }
+        .modal-content {
+            background: var(--white); width: 100%; max-width: 600px;
+            border-radius: 25px 25px 0 0; padding: 25px; 
+            max-height: 85vh; overflow-y: auto;
+            animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            padding-bottom: max(25px, env(safe-area-inset-bottom));
+        }
         @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
+        /* === АДАПТАЦИЯ ПОД МОБИЛЬНЫЕ (MEDIA QUERIES) === */
+        @media (max-width: 900px) {
+            /* Переключаем сетку в 1 колонку */
+            .app-wrapper { grid-template-columns: 1fr; gap: 0; }
+            
+            /* Скрываем ПК корзину */
+            .cart-panel { display: none; }
+            
+            /* Показываем мобильную плашку */
+            .mobile-cart-bar { display: flex; }
+
+            /* Адаптация Hero */
+            .hero { margin-top: 55px; padding: 40px 0; border-radius: 0 0 20px 20px; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero p { font-size: 0.95rem; padding: 0 10px; }
+
+            /* Липкие табы для мобильных */
+            .tabs {
+                position: sticky; top: 60px; /* Высота хедера */
+                background: var(--white); z-index: 90;
+                padding: 10px 0; margin: 0 -20px 20px -20px; /* Растягиваем на всю ширину */
+                padding-left: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            }
+            
+            /* Контейнер списка */
+            .services-panel { border: none; box-shadow: none; padding: 0; border-radius: 0; background: transparent; }
+            
+            .service-item { padding: 15px 0; }
+            .btn-qty { width: 36px; height: 36px; } /* Кнопки крупнее для пальцев */
+            
+            /* Хедер поменьше */
+            header { padding: 10px 0; }
+            .contact-btn { padding: 6px 12px; font-size: 0.8rem; }
+            .contact-btn i { display: none; } /* Только номер, без иконки */
+        }
     </style>
 </head>
 <body>
@@ -199,135 +217,88 @@
     <header>
         <div class="container nav-wrapper">
             <a href="#" class="logo"><i class="fa-solid fa-bolt"></i> ЭлектроПрофи</a>
-            <!-- 🔥 РЕДАКТИРОВАТЬ: Телефон -->
-            <a href="tel:+79785754636" class="contact-btn"><i class="fa-solid fa-phone"></i> +7 (900) 000-00-00</a>
+            <!-- ВАШ ТЕЛЕФОН -->
+            <a href="tel:+79785754636" class="contact-btn"><i class="fa-solid fa-phone"></i> +7 (978) 575-46-36</a>
         </div>
     </header>
 
     <section class="hero">
         <div class="container">
-            <h1>Профессиональный электромонтаж <br> <span class="hero-span">по честным ценам</span></h1>
-            <p>Онлайн-калькулятор стоимости работ. Прайс-лист актуален на 2025 год.</p>
+            <h1>Услуги электрика <br><span class="hero-span">Профессионально</span></h1>
+            <p>Онлайн-калькулятор стоимости работ. Прайс 2025.</p>
         </div>
     </section>
 
     <div class="container">
-        
-        <div class="section-header" style="margin-top: 0;">
-            <h2>Калькулятор услуг</h2>
-            <p>Соберите смету и отправьте заявку в один клик</p>
-        </div>
-
-        <!-- КАЛЬКУЛЯТОР -->
+        <!-- Обертка приложения -->
         <div class="app-wrapper">
-            <!-- Список услуг -->
+            
+            <!-- Левая часть: Список услуг -->
             <div class="services-panel">
-                <div class="tabs" id="category-tabs">
-                    <!-- Сюда JS вставит табы -->
-                </div>
-                <div id="services-list">
-                    <!-- Сюда JS вставит услуги -->
-                </div>
+                <div class="tabs" id="category-tabs"></div>
+                <div id="services-list"></div>
             </div>
 
-            <!-- Корзина (ПК) -->
+            <!-- Правая часть: Корзина (Только для ПК) -->
             <div class="cart-panel">
                 <div class="cart-header">Ваша смета</div>
                 <div class="cart-list" id="cart-list-desktop">
-                    <div class="empty-cart-msg"><i class="fa-solid fa-basket-shopping"></i><br>Добавьте услуги из списка</div>
+                    <div class="empty-msg">Смета пуста</div>
                 </div>
-                <div id="cart-actions" style="display:none;">
-                    <div class="total-block" style="background:var(--light); padding:20px; border-radius:15px; text-align:center; margin-bottom:20px;">
-                        <span style="color:var(--gray); font-size:0.9rem;">Итоговая стоимость:</span>
+                <div id="cart-actions-desktop" style="display:none;">
+                    <div class="total-block">
+                        <small>Итого:</small>
                         <span class="total-price" id="total-price-desktop">0 ₽</span>
                     </div>
-                    <input type="text" class="form-input" id="comment-desktop" placeholder="Комментарий (Адрес, телефон)...">
-                    <div class="order-buttons">
-                        <button class="btn-order btn-whatsapp" onclick="sendOrder('wa')"><i class="fa-brands fa-whatsapp"></i> WhatsApp</button>
-                        <button class="btn-order btn-telegram" onclick="sendOrder('tg')"><i class="fa-brands fa-telegram"></i> Telegram</button>
-                    </div>
+                    <input type="text" class="form-input" id="comment-desktop" placeholder="Адрес / Комментарий...">
+                    <button class="btn-order btn-whatsapp" onclick="sendOrder('wa')">
+                        <i class="fa-brands fa-whatsapp"></i> Заказать в WhatsApp
+                    </button>
+                    <button class="btn-order btn-telegram" onclick="sendOrder('tg')">
+                        <i class="fa-brands fa-telegram"></i> Заказать в Telegram
+                    </button>
                 </div>
             </div>
+
         </div>
-
-        <!-- ПОРТФОЛИО -->
-        <div class="section-header">
-            <h2>Примеры выполненных работ</h2>
-            <p>Фотографии с реальных объектов</p>
-        </div>
-
-        <div class="portfolio-grid">
-            <!-- Работа 1 -->
-            <div class="portfolio-card">
-                <div class="portfolio-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=600" class="portfolio-img" alt="Щит">
-                </div>
-                <div class="portfolio-content">
-                    <span class="portfolio-tag">Черновая электрика</span>
-                    <h3 class="portfolio-title">Сборка электрощита</h3>
-                    <p class="portfolio-desc">Монтаж встраиваемого щита на 36 модулей. Установка реле напряжения, УЗО.</p>
-                    <div class="portfolio-price"><span>Цена работы:</span><span style="color:var(--primary)">12 000 ₽</span></div>
-                </div>
-            </div>
-            <!-- Работа 2 -->
-            <div class="portfolio-card">
-                <div class="portfolio-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?q=80&w=600" class="portfolio-img" alt="Свет">
-                </div>
-                <div class="portfolio-content">
-                    <span class="portfolio-tag">Освещение</span>
-                    <h3 class="portfolio-title">Подсветка кухни</h3>
-                    <p class="portfolio-desc">Монтаж профиля и LED-ленты в рабочей зоне кухни. Бесконтактный выключатель.</p>
-                    <div class="portfolio-price"><span>Цена работы:</span><span style="color:var(--primary)">5 500 ₽</span></div>
-                </div>
-            </div>
-            <!-- Работа 3 -->
-            <div class="portfolio-card">
-                <div class="portfolio-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1558402529-d2638a7023e9?q=80&w=600" class="portfolio-img" alt="Розетки">
-                </div>
-                <div class="portfolio-content">
-                    <span class="portfolio-tag">Чистовая электрика</span>
-                    <h3 class="portfolio-title">Замена розеток</h3>
-                    <p class="portfolio-desc">Полная замена электрофурнитуры в 2-комнатной квартире. Schneider Electric.</p>
-                    <div class="portfolio-price"><span>Цена работы:</span><span style="color:var(--primary)">8 000 ₽</span></div>
-                </div>
-            </div>
-        </div>
-
-    </div> <!-- Конец container -->
-
-    <!-- КАРТА -->
-    <div class="map-section">
-        <div class="map-overlay">Работаю по всей Москве и МО</div>
-        <!-- 🔥 РЕДАКТИРОВАТЬ: Ссылка на карту -->
-        <iframe src="https://yandex.ru/map-widget/v1/?ll=37.624493%2C55.753600&z=10" class="map-frame" allowfullscreen="true"></iframe>
     </div>
 
-    <!-- MOBILE BAR (Плашка снизу) -->
-    <div class="mobile-cart-bar" id="mobile-bar" style="display:none;">
-        <div><div style="font-size: 12px; color: var(--gray);">Итого:</div><div class="mob-total" id="mob-total-price">0 ₽</div></div>
-        <a href="#" class="mob-btn" onclick="openModal()">Оформить</a>
+    <!-- МОБИЛЬНАЯ НИЖНЯЯ ПАНЕЛЬ -->
+    <div class="mobile-cart-bar" id="mobile-bar">
+        <div>
+            <div class="mob-info">Итоговая стоимость:</div>
+            <div class="mob-total" id="mob-total-price">0 ₽</div>
+        </div>
+        <div class="mob-btn" onclick="openModal()">Оформить</div>
     </div>
 
-    <!-- MODAL (Мобильное окно) -->
+    <!-- МОБИЛЬНАЯ ШТОРКА (MODAL) -->
     <div class="modal-overlay" id="modal">
         <div class="modal-content">
-            <div style="display:flex; justify-content:space-between; margin-bottom:20px;">
-                <h2 style="font-size:1.5rem;">Оформление</h2>
-                <div onclick="closeModal()" style="font-size:1.5rem; cursor:pointer;">&times;</div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+                <h2 style="margin:0; font-size:1.5rem;">Ваш заказ</h2>
+                <div onclick="closeModal()" style="font-size:1.8rem; color:#999; cursor:pointer;">&times;</div>
             </div>
-            <div class="cart-list" id="cart-list-mobile" style="max-height: 200px; margin-bottom:20px;"></div>
-            <input type="text" class="form-input" id="comment-mobile" placeholder="Комментарий...">
-            <div class="order-buttons">
-                <button class="btn-order btn-whatsapp" onclick="sendOrder('wa')"><i class="fa-brands fa-whatsapp"></i> WhatsApp</button>
-                <button class="btn-order btn-telegram" onclick="sendOrder('tg')"><i class="fa-brands fa-telegram"></i> Telegram</button>
+            
+            <div class="cart-list" id="cart-list-mobile" style="margin-bottom:20px;"></div>
+            
+            <div class="total-block" style="background:var(--light); padding:15px; border-radius:12px; margin-bottom:20px;">
+                <div style="font-size:1.5rem; font-weight:800;" id="modal-total-price">0 ₽</div>
             </div>
+
+            <input type="text" class="form-input" id="comment-mobile" placeholder="Адрес / Комментарий...">
+            
+            <button class="btn-order btn-whatsapp" onclick="sendOrder('wa')">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+            </button>
+            <button class="btn-order btn-telegram" onclick="sendOrder('tg')">
+                <i class="fa-brands fa-telegram"></i> Telegram
+            </button>
         </div>
     </div>
 
 <script>
-    // === БАЗА ДАННЫХ ===
+    // === ДАННЫЕ УСЛУГ ===
     const services = [
         {
             id: "finish", title: "Чистовая электрика", icon: "fa-plug",
@@ -386,64 +357,88 @@
         const listContainer = document.getElementById('services-list');
 
         services.forEach((cat, index) => {
+            // Создание табов
             const tabBtn = document.createElement('button');
             tabBtn.className = `tab-btn ${index === 0 ? 'active' : ''}`;
-            tabBtn.innerHTML = `<i class="fa-solid ${cat.icon}"></i> ${cat.title}`;
+            tabBtn.innerText = cat.title;
             tabBtn.onclick = () => {
                 document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
                 tabBtn.classList.add('active');
-                document.getElementById(`group-${cat.id}`).scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // Скролл с учетом липкого хедера
+                const el = document.getElementById(`group-${cat.id}`);
+                const offset = 140; 
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementRect = el.getBoundingClientRect().top;
+                const elementPosition = elementRect - bodyRect;
+                const offsetPosition = elementPosition - offset;
+                window.scrollTo({ top: offsetPosition, behavior: "smooth" });
             };
             tabsContainer.appendChild(tabBtn);
 
+            // Создание групп услуг
             const group = document.createElement('div');
             group.className = 'service-group';
             group.id = `group-${cat.id}`;
-            let groupHtml = `<div class="group-title"><i class="fa-solid ${cat.icon}"></i> ${cat.title}</div>`;
+            group.innerHTML = `<div class="group-title">${cat.title}</div>`;
             
             cat.items.forEach(item => {
-                groupHtml += `
-                <div class="service-item">
+                const itemEl = document.createElement('div');
+                itemEl.className = 'service-item';
+                itemEl.innerHTML = `
                     <div class="item-info">
                         <h4>${item.name}</h4>
                         <span class="item-price">${item.price} ₽</span> <span class="item-unit">/ ${item.unit}</span>
                     </div>
                     <div id="controls-${item.id}">
-                        <div class="controls"><div class="add-btn-text" onclick="updateCart(${item.id}, 1)">Добавить</div></div>
+                        ${renderControlsHTML(item.id)}
                     </div>
-                </div>`;
+                `;
+                group.appendChild(itemEl);
             });
-            group.innerHTML = groupHtml;
             listContainer.appendChild(group);
         });
     }
 
-    function updateCart(id, delta) {
-        if (!cart[id]) cart[id] = 0;
-        cart[id] += delta;
-        if (cart[id] <= 0) delete cart[id];
-        renderControls(id);
-        renderCart();
-    }
-
-    function renderControls(id) {
-        const el = document.getElementById(`controls-${id}`);
-        if (!el) return;
+    function renderControlsHTML(id) {
         const qty = cart[id] || 0;
         if (qty === 0) {
-            el.innerHTML = `<div class="controls"><div class="add-btn-text" onclick="updateCart(${id}, 1)">Добавить</div></div>`;
+            return `<div class="controls"><div class="add-btn-text" onclick="updateCart(${id}, 1)">Добавить</div></div>`;
         } else {
-            el.innerHTML = `<div class="controls"><button class="btn-qty" onclick="updateCart(${id}, -1)">-</button><span class="qty-val">${qty}</span><button class="btn-qty" onclick="updateCart(${id}, 1)">+</button></div>`;
+            return `
+                <div class="controls">
+                    <button class="btn-qty" onclick="updateCart(${id}, -1)">−</button>
+                    <span class="qty-val">${qty}</span>
+                    <button class="btn-qty" onclick="updateCart(${id}, 1)">+</button>
+                </div>`;
         }
     }
 
+    function updateCart(id, delta) {
+        // Вибрация для мобильных (приятный отклик)
+        if (navigator.vibrate) navigator.vibrate(15); 
+
+        if (!cart[id]) cart[id] = 0;
+        cart[id] += delta;
+        if (cart[id] <= 0) delete cart[id];
+
+        // Обновляем кнопку в списке
+        const ctrlContainer = document.getElementById(`controls-${id}`);
+        if(ctrlContainer) ctrlContainer.innerHTML = renderControlsHTML(id);
+
+        renderCart();
+    }
+
     function renderCart() {
-        const cartListD = document.getElementById('cart-list-desktop');
-        const cartActionsD = document.getElementById('cart-actions');
-        const totalD = document.getElementById('total-price-desktop');
+        // Элементы ПК
+        const listDesktop = document.getElementById('cart-list-desktop');
+        const actionsDesktop = document.getElementById('cart-actions-desktop');
+        const totalDesktop = document.getElementById('total-price-desktop');
+        
+        // Элементы Мобильные
         const mobileBar = document.getElementById('mobile-bar');
         const mobTotal = document.getElementById('mob-total-price');
-        const cartListM = document.getElementById('cart-list-mobile');
+        const listMobile = document.getElementById('cart-list-mobile');
+        const modalTotal = document.getElementById('modal-total-price');
 
         let html = '';
         let total = 0;
@@ -457,12 +452,12 @@
                     total += sum;
                     html += `
                         <div class="cart-list-item">
-                            <div class="cart-item-name">
-                                ${item.name} <br> 
-                                <small style="color:#888; font-weight:normal;">${cart[item.id]} ${item.unit} x ${item.price} ₽</small>
+                            <div>
+                                <b>${item.name}</b><br>
+                                <span style="color:#888">${cart[item.id]} ${item.unit} x ${item.price} ₽</span>
                             </div>
-                            <div class="cart-item-price">
-                                ${sum} ₽ 
+                            <div style="display:flex; align-items:center;">
+                                <b>${sum} ₽</b>
                                 <i class="fa-solid fa-trash del-btn" onclick="updateCart(${item.id}, -${cart[item.id]})"></i>
                             </div>
                         </div>`;
@@ -470,32 +465,41 @@
             });
         });
 
+        const totalStr = total.toLocaleString('ru-RU') + ' ₽';
+
+        // Обновление ПК версии
         if (hasItems) {
-            cartListD.innerHTML = html;
-            cartActionsD.style.display = 'block';
-            totalD.innerText = total.toLocaleString() + ' ₽';
-            
-            // Mobile
-            mobileBar.style.display = 'flex';
-            mobTotal.innerText = total.toLocaleString() + ' ₽';
-            cartListM.innerHTML = html;
+            listDesktop.innerHTML = html;
+            actionsDesktop.style.display = 'block';
+            totalDesktop.innerText = totalStr;
         } else {
-            cartListD.innerHTML = `<div class="empty-cart-msg"><i class="fa-solid fa-basket-shopping"></i><br>Добавьте услуги из списка</div>`;
-            cartActionsD.style.display = 'none';
+            listDesktop.innerHTML = '<div class="empty-msg">Смета пуста</div>';
+            actionsDesktop.style.display = 'none';
+        }
+
+        // Обновление Мобильной версии
+        if (hasItems) {
+            mobileBar.style.display = 'flex'; // Показываем нижнюю плашку
+            mobTotal.innerText = totalStr;
+            listMobile.innerHTML = html;
+            modalTotal.innerText = totalStr;
+        } else {
             mobileBar.style.display = 'none';
             closeModal();
         }
     }
 
+    // === ФУНКЦИИ ОТПРАВКИ ===
     function sendOrder(type) {
         let comment = "";
-        if (window.innerWidth <= 1000) {
+        // Берем комментарий в зависимости от того, где нажали (ПК или Мобилка)
+        if (window.innerWidth <= 900) {
             comment = document.getElementById('comment-mobile').value;
         } else {
             comment = document.getElementById('comment-desktop').value;
         }
 
-        let msg = "Здравствуйте! Хочу заказать работы :\n\n";
+        let msg = "Здравствуйте! Заявка с сайта:\n\n";
         let total = 0;
 
         services.forEach(cat => {
@@ -509,33 +513,33 @@
         });
 
         msg += `\n💰 ИТОГО: ${total.toLocaleString()} руб.`;
-        if (comment) msg += `\n\n📝 Комментарий: ${comment}`;
+        if (comment) msg += `\n\n📝 Инфо: ${comment}`;
 
-        const phone = "+79785754636"; 
+        // ВАШИ КОНТАКТЫ
+        const phone = "79785754636"; 
         const tgUsername = "Llosta"; 
 
         let url = "";
-        if (type === 'wa') {
-            url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
-        } else if (type === 'tg') {
-            url = `https://t.me/${tgUsername}?text=${encodeURIComponent(msg)}`;
-        }
+        if (type === 'wa') url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+        if (type === 'tg') url = `https://t.me/${tgUsername}?text=${encodeURIComponent(msg)}`;
 
         window.open(url, '_blank');
     }
 
+    // === МОДАЛЬНОЕ ОКНО ===
     function openModal() {
         document.getElementById('modal').classList.add('active');
-        document.body.style.overflow = 'hidden'; 
+        document.body.style.overflow = 'hidden'; // Блокируем скролл фона
     }
     function closeModal() {
         document.getElementById('modal').classList.remove('active');
         document.body.style.overflow = 'auto';
     }
     document.getElementById('modal').onclick = function(e) {
-        if (e.target === this) closeModal();
+        if(e.target === this) closeModal();
     }
 
+    // Запуск
     init();
 </script>
 
